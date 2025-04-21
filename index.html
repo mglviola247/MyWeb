@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <title>Миний анхны вэбсайт</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #333399;
+        }
+        p {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Сайн байна уу!</h1>
+    <p>Энэ бол миний анхны вэбсайт.</p>
+    <p>HTML ашиглан хийгдсэн энгийн хуудас.</p>
+     <h2>Мэдээлэл илгээх форм</h2>
+  <form id="myForm">
+    <label>Нэр: <input type="text" name="name" required></label><br><br>
+    <label>Имэйл: <input type="email" name="email" required></label><br><br>
+    <button type="submit">Илгээх</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('myForm');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const data = {
+        name: form.name.value,
+        email: form.email.value
+      };
+
+      fetch('https://script.google.com/macros/s/AKfycbzJx3sU6UjEB2IhTn9LZgHfmwBfb9eKwAQyGm0TAtSPaWah2eWNQvxRfNcMf3xlwajl/exec', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(res => res.text())
+      .then(response => alert("Амжилттай: " + response))
+      .catch(err => alert("Алдаа: " + err));
+    });
+  </script>
+</body>
+</html>
