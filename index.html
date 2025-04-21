@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Миний анхны вэбсайт</title>
-    <title>Миний анхны google sheet</title>
-    <title>Миний анхны google sheet</title>
+   
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -22,7 +21,7 @@
 </head>
 <body>
     <h1>Сайн байна уу!</h1>
-    <p>Энэ бол миний анхны вэбсайт.</p>
+    <p>Энэ бол миний анхны google sheet холбох оролдлого</p>
     <p>HTML ашиглан хийгдсэн энгийн хуудас.</p>
      <h2>Мэдээлэл илгээх форм</h2>
   <form id="myForm">
@@ -41,7 +40,7 @@
         email: form.email.value
       };
 
-      fetch('https://script.google.com/macros/library/d/1OSk9mdlVnr8A8e2VuT5s2AsjkDEqoIJUPH4XoyaGaXyL6NxqJ2iYZ4fN/1', {
+      fetch('https://script.google.com/macros/s/AKfycby49puPDliGXXqH-0OK0nwZaCO9s0o5eom0j2ccBf6hoOp-dsee0lGN2kftqGoGnRUm9A/exec', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
