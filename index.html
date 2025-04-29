@@ -20,6 +20,7 @@
     </style>
 </head>
 <body>
+    <a href="save_images.html" >Save Image</a>
     <h1>OBC өрөлт бүртгэл</h1>
    
      <h2>Мэдээлэл илгээх хэсэг</h2>
@@ -44,19 +45,24 @@
 
 
 
-  <button type="submit">Send</button>
+  <button type="submit">Send</button><br><br>
 </form>
 
 <script>
   const scriptURL = 'https://script.google.com/macros/s/AKfycbwop-MNSMIcnOP_cxN6h-NPDXDy_ULYaXHMlnHFsQot9L4bFSMbRJPF3hgXWACBRGYi/exec'
   const form = document.forms['submit-to-google-sheet']
 
+
   form.addEventListener('submit', e => {
     e.preventDefault()
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+    fetch(scriptURL, { 
+        method: 'POST', 
+        body: new FormData(form)})
       .then(response => console.log('Success!', response))
       .catch(error => console.error('Error!', error.message))
   })
 </script>
+
+
 </body>
 </html>
