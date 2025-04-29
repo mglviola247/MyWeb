@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <title>Миний анхны вэбсайт</title>
+   
+</head>
+<body>
+     <input type="file" id="fileInput">
+<br>
+<img id="preview" width="200">
+<br>
+<button id="uploadBtn">Илгээх</button>
+
+<script>
+  let url = "https://script.google.com/macros/s/AKfycbxy8QOzdjB-elYuKsbEzc7K_xwa5udcuB5H3xx37U2a7X5aQk85HJhHy3uKx337xcjxmg/exec";
+
+  let fileInput = document.getElementById("fileInput");
+  let img = document.getElementById("preview");
+  let uploadBtn = document.getElementById("uploadBtn");
+
+  let selectedFile; // хадгалах хувьсагч
+
+  fileInput.addEventListener('change', () => {
+    selectedFile = fileInput.files[0];
+    let fr = new FileReader();
+    fr.onloadend = () => {
+      img.src = fr.result;
+    }
+    fr.readAsDataURL(selectedFile);
+  });
+
+  uploadBtn.addEventListener('click', () => {
+    if (!selectedFile) {
+      alert("Зураг сонгоно уу!");
+      return;
+    }
+
+    let fr = new FileReader();
+    fr.onloadend = () => {
+      let res = fr.result;
+      let base64 = res.split("base64,")[1];
+      let obj = {
+        base64: base64,
+        type: selectedFile.type,
+        name: selectedFile.name
+      };
+
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(obj)
+      })
+      .then(r => r.text())
+      .then(data => {
+        console.log(data);
+        alert("Амжилттай илгээгдлээ!");
+      });
+    };
+    fr.readAsDataURL(selectedFile);
+  });
+</script>
+
+
+
+
+</body>
+</html>
