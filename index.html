@@ -20,32 +20,35 @@
     </style>
 </head>
 <body>
-    <a href="save.html" >Save Image</a>
-    <h1>OBC өрөлт бүртгэл</h1>
+    <h1>Top харилцагчидийн гоймонгийн тоо бүртгэл</h1>
    
      <h2>Мэдээлэл илгээх хэсэг</h2>
   <form name="submit-to-google-sheet">
-    <input name="route" type="number" placeholder="Бүсийн дугаар" required>
+    <input name="route" type="number" placeholder="Бүсийн дугаар" required><br>
     <input name="name" type="text" placeholder="Харилцагчийн нэр" required><br>
-    <input name="state" type="radio" value="шинэ" required><label>Шинэ<label>
-    <input name="state" type="radio" value="хуучин" required><label>Хадгалагдсан<label>
-    <input name="state" type="radio" value="буусан өрөлт" required><label>Буусан<label><br>
-    <input name="platform" type="number" placeholder="Тавцангийн тоо" required>
-    <input name="platprice" type="number" placeholder="Тавцангийн үнэлгээ" required><br>
-    <input name="freezer" type="number" placeholder="Хөргөгчний тавцангийн тоо" required>
-    <input name="freezer price" type="number" placeholder="Хөргөгчний үнэлгээ" required><br>
-    <input name="Soju" type="number" placeholder="Сөжү тавцангийн тоо" required>
-    <input name="Sojuprice" type="number" placeholder="Сөжү тавцангийн үнэлгээ" required><br>
-    <input name="foot" type="number" placeholder="Подооны тоо" required>
-    <input name="footprice" type="number" placeholder="Подооны үнэлгээ" required><br>
-    <input name="pet" type="number" placeholder="Петний тавцангийн тоо" required>
-    <input name="petprice" type="number" placeholder="Петний тавцангийн үнэлгээ" required><br>
-
-
-
-
-
-  <button type="submit">Send</button><br><br>
+    <input name="NON1106" type="number" placeholder="Т" required><br>
+    <input name="NON1107" type="number" placeholder="Тавцангийн үнэлгээ" required><br>
+    <input name="NON1145" type="number" placeholder="Хөргөгчний тавцангийн тоо" required><br>
+    <input name="NON1104" type="number" placeholder="Хөргөгчний үнэлгээ" required><br>
+    <input name="NON1105" type="number" placeholder="Сөжү тавцангийн тоо" required><br>
+    <input name="NON1144" type="number" placeholder="Сөжү тавцангийн үнэлгээ" required><br>
+    <input name="NON1122" type="number" placeholder="Подооны тоо" required><br>
+    <input name="NON1101" type="number" placeholder="Подооны үнэлгээ" required><br>
+    <input name="NON1131" type="number" placeholder="Петний тавцангийн тоо" required><br>
+    <input name="NON1180" type="number" placeholder="Петний тавцангийн үнэлгээ" required><br>
+    <input name="NON9910" type="number" placeholder="Хөргөгчний тавцангийн тоо" required><br>
+    <input name="NON9902" type="number" placeholder="Хөргөгчний үнэлгээ" required><br>
+    <input name="NON9934" type="number" placeholder="Сөжү тавцангийн тоо" required><br>
+    <input name="NON9937" type="number" placeholder="Сөжү тавцангийн үнэлгээ" required><br>
+    <input name="NON9909" type="number" placeholder="Подооны тоо" required><br>
+    <input name="NON9940" type="number" placeholder="Подооны үнэлгээ" required><br>
+    <input name="NON1136" type="number" placeholder="Петний тавцангийн тоо" required><br>
+    <input name="NON1137" type="number" placeholder="Петний тавцангийн үнэлгээ" required><br>
+    <input name="NON1138" type="number" placeholder="Хөргөгчний тавцангийн тоо" required><br>
+    <input name="NON1134" type="number" placeholder="Хөргөгчний үнэлгээ" required><br>
+    <input name="NON1140" type="number" placeholder="Сөжү тавцангийн тоо" required><br>
+    <input name="NON1143" type="number" placeholder="Сөжү тавцангийн үнэлгээ" required><br>
+ <button type="submit">Send</button><br><br>
 </form>
 
 <script>
@@ -58,7 +61,7 @@
     fetch(scriptURL, { 
         method: 'POST', 
         body: new FormData(form)})
-      .then(response => console.log('Success!', response))
+      .then(response => console.log('Success!', response),alert("Амжилттай илгээгдлээ"))
       .catch(error => console.error('Error!', error.message))
   })
 </script>
