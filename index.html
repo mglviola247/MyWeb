@@ -62,7 +62,7 @@
     fetch(scriptURL, { 
         method: 'POST', 
         body: new FormData(form)})
-      .then(response => console.log('Success!', response),alert("Амжилттай илгээгдлээ"))
+      .then(response => console.log('Success!', response),alert("Амжилттай илгээгдлээ"),form.reset())
       .catch(error => console.error('Error!', error.message))
   })
 </script>
