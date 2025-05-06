@@ -6,6 +6,41 @@
    
 </head>
 <body>
+    <img src="https://drive.google.com/file/d/1izEM22KFNdaSKu-uSDFTJiL4BNN1-X1y" 
+         alt="Drive Image" 
+         style="width:100%; max-width:600px; border: 1px solid #ccc; border-radius: 8px;">
+
+         <iframe src="https://drive.google.com/file/d/1wAOsFhLfGPcKSTSeZXdzVExqUA0vvhOD/preview" 
+        width="640" 
+        height="480" 
+        allow="autoplay">
+</iframe>
+  <select id="filenameSelect">
+  <option value="">-- Файлын нэр сонгох --</option>
+</select>
+
+<script>
+  // Sheet-ээс нэрс авах GAS URL
+  let listUrl = "https://script.google.com/macros/s/AKfycbwd4R2qY7LMDhzhX5_CwO5drS-Urpj2yo6cvRqTr-4yoI4GsUW8EgxRD5Ofjtu4AXQ/exec";
+
+  let filenameSelect = document.getElementById("filenameSelect");
+
+  fetch(listUrl)
+    .then(r => r.json())
+    .then(names => {
+      names.forEach(name => {
+        let opt = document.createElement("option");
+        opt.value = name;
+        opt.textContent = name;
+        filenameSelect.appendChild(opt);
+      });
+    })
+    .catch(err => {
+      console.error("List load error:", err);
+      alert("Жагсаалт ачаалахад алдаа гарлаа.");
+    });
+</script>
+
      <input type="file" id="fileInput">
 <br>
 <img id="preview" width="200">
@@ -13,7 +48,7 @@
 <button id="uploadBtn">Илгээх</button>
 
 <script>
-  let url = "https://script.google.com/macros/s/AKfycbxy8QOzdjB-elYuKsbEzc7K_xwa5udcuB5H3xx37U2a7X5aQk85HJhHy3uKx337xcjxmg/exec";
+  let url = "https://script.google.com/macros/s/AKfycbyoY6BTy5-iesN7dk8AUegoqOtGYBrkqSccOpkWbsPhfHVJPhl4imnIc6Wdai27iOP7bw/exec";
 
   let fileInput = document.getElementById("fileInput");
   let img = document.getElementById("preview");
