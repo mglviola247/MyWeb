@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <title>Шинэ харилцагч</title>
+    <head>
+    <link rel="stylesheet" href="style.css">
+    </head>
+   
+    
+</head>
+<body>
+    <h2>Шинэ харилцагчийн бүртгэл</h2>
+   
+  <div class = "Sent">
+  <form name="submit-to-google-sheet" class="form">
+    <input name="Утас" type="number" placeholder="Бүртгэж байгаа хүний утасны дугаар" required><br>
+    
+     <label>Шинэ харилцагч:</label><input name="Төлөв" type="radio" value="Шинэ харилцагч" required>
+     <label>РД солиулах   :</label><input name="Төлөв" type="radio" value="РД солиулах" required><br>
+     <input name="Бүсийн дугаар" type="number" placeholder="Бүсийн дугаар" required><br>
+      <label>RA:</label><input name="Суваг" type="radio" value="RA" required>
+      <label>OS:</label><input name="Суваг" type="radio" value="RA" required>
+      <label>HOR:</label><input name="Суваг" type="radio" value="RA" required><br>
+    <input name="Улсын бүртгэл" type="text" placeholder="Улсын бүртгэл" required><br>
+    <input name="Харилцагчийн албан ёсны нэр" type="text" placeholder="Харилцагчийн албан ёсны нэр" required><br>
+    <input name="Харилцагчийн нэр" type="text" placeholder="Харилцагчийн нэр" required><br>
+    <input name="Регистрийн дугаар" type="text" placeholder="Улсын бүртгэл" required><br>
+    <label>НӨАТ төлөгч эсэх:</label>
+    <label>Тийм:</label><input name="НӨАТ төлөгч эсэх" type="radio" value="Тийм" required>
+    <label>Үгүй:</label><input name="НӨАТ төлөгч эсэх" type="radio" value="Үгүй" required><br>
+    <input name="Толгой байгууллагын нэр" type="text" placeholder="Толгой байгууллагын нэр" required><br>
+    <input name="Банкны нэр" list="Bank" placeholder="Банкны нэр" required><br>
+    <input name="Дансны дугаар" type="number" placeholder="Дансны дугаар" required><br>
+    <input name="Данс эзэмшигчийн нэр" type="text" placeholder="Данс эзэмшигчийн нэр" required><br>
+    <input name="Сегмент" list="segment" placeholder="Сегмент" required><br>
+    <input name="Төрөл" list="type" placeholder="Төрөл" required><br>
+    <label>Согтууруулах ундаа зарах зөвшөөрөлтэй эсэх</label>
+    <label>Тийм:</label><input name="Согтууруулах ундаа зарах зөвшөөрөлтэй эсэх" type="radio" value="Тийм" required>
+    <label>Үгүй:</label><input name="Согтууруулах ундаа зарах зөвшөөрөлтэй эсэх" type="radio" value="Үгүй" required><br>
+    <input name="Хаяг" type="text" placeholder="Албан ёсны хаяг" required><br>
+    <input name="Утас 1" type="text" placeholder="Харилцагчийн утасны дугаар" required><br>
+    <input name="Супервайзор утас" list="SV phone" placeholder="Супервайзор утас" required><br>
+
+
+
+ <button type="submit">Илгээх</button><br><br>
+</form>
+</div>
+<datalist id="SV phone">
+  <option value="88106358">
+  <option value="88106358">
+</datalist>
+<datalist id="Bank">
+  <option value="Хаан банк">
+  <option value="Голомт банк">
+  <option value="Төрийн банк">
+  <option value="Худалдаа хөгжилийн банк">
+  <option value="Хас банк">
+  <option value="Капитрон банк">
+  <option value="Ариг банк">
+  <option value="Богд банк">
+  <option value="М банк">
+
+</datalist>
+<datalist id="type">
+  <option value="6 нэр">
+  <option value="8 нэр">
+  <option value="Лангуу">
+  <option value="Түц">
+  <option value="Зэдний газар">
+  <option value="Буудал">
+  <option value="Хоолны газар">
+
+</datalist>
+<datalist id="segment">
+  <option value="MKA">
+  <option value="MKB">
+  <option value="MKC">
+  <option value="GRA">
+  <option value="GRB">
+  <option value="KSK">
+  <option value="STD">
+  <option value="WSB">
+  <option value="WSS">
+  <option value="HMN">
+  <option value="PHM">
+  <option value="RSA">
+  <option value="FFO">
+  <option value="COR">
+  <option value="MTL">
+  <option value="COF">
+  <option value="BAK">
+  <option value="PCA">
+
+</datalist>
+
+
+<script>
+
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxpm0TLN-6gEG9zmXa-BMotjEq89V5R5wxxj9ujZjYjADJci4FqqiCo5tbumWrUu99e/exec'
+
+  const form = document.forms['submit-to-google-sheet']
+
+ 
+  // Илгээх дээр дарсан үед шалгана
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+
+    fetch(scriptURL, {
+        method: 'POST',
+        body: new FormData(form)
+    })
+    .then(response => {
+      alert("Амжилттай илгээгдлээ");
+      form.reset()
+    })
+    .catch(error => {
+      console.error('Error!', error.message)
+      alert("Илгээхэд алдаа гарлаа!")
+    })
+  })
+</script>
+
+
+
+</body>
+</html>
