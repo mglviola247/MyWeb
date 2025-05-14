@@ -45,7 +45,7 @@
   let allNames = [];
 
   // Google Sheet-ээс нэрсийг татах
-  fetch("https://script.google.com/macros/s/AKfycbzfyWrhTYkixTXPHJBYj_ezO665jks1eD-tufrxqrks4AyaBU-_7xT7wWdmCgZua_sU/exec") // Google Apps Script URL
+  fetch("https://script.google.com/macros/s/AKfycbx-xZ7TuL3Wa0H8-ukHe0rxsCHayuaYHmhbcbBfwv8mU0o4vcAWsOmWCWlDrZYVaDBH/exec") // Google Apps Script URL
     .then(res => res.json())
     .then(data => allNames = data)
     .catch(err => console.error("Нэрс татахад алдаа:", err));
