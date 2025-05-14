@@ -29,9 +29,9 @@
     <input name="Route" type="number" placeholder="Бүсийн дугаар" required><br>
     <input name="Customer Name" id="customerName" type="text" placeholder="Харилцагчийн нэр" required><br>
     <ul id="suggestions" style="list-style: none; padding: 0; margin: 0; background: #fff; border: 1px solid #ccc; display: none; position: absolute; width: 300px;"></ul>
-    <input name="Vendor" type="radio" value="NON" required><label>NON</label>
-    <input name="Vendor" type="radio" value="KON" required><label>KON</label>
-    <input name="Vendor" type="radio" value="Подоон" required><label>Подоон</label><br>
+    <label>NON</label><input name="Vendor" type="radio" value="NON" required>
+    <label>KON</label><input name="Vendor" type="radio" value="KON" required>
+    <label>Подоон</label><input name="Vendor" type="radio" value="Подоон" required><br>
     <input name="Тавцангийн тоо" type="number" placeholder="Тавцангийн тоо" required><br>
     <input name="Тавцангийн үнэлгээ" type="number" placeholder="Тавцангий үнэлгээ" required><br>
     <input name="Нийт тавцангийн тоо" type="Number" placeholder = "Нийт тавцангийн тоо" required><br>
@@ -45,7 +45,7 @@
   let allNames = [];
 
   // Google Sheet-ээс нэрсийг татах
-  fetch("https://script.google.com/macros/s/AKfycbxNqe7es5NRTGgE-I5qvVOjmDFcNgtDjLBgsd9sqbzYQlcMO56J1f-wpS5B7liCfpwB/exec") // Google Apps Script URL
+  fetch("https://script.google.com/macros/s/AKfycbxpm0TLN-6gEG9zmXa-BMotjEq89V5R5wxxj9ujZjYjADJci4FqqiCo5tbumWrUu99e/exec") // Google Apps Script URL
     .then(res => res.json())
     .then(data => allNames = data)
     .catch(err => console.error("Нэрс татахад алдаа:", err));
