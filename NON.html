@@ -15,7 +15,7 @@
 </head>
 <body>
   <div class="topnav">
-  <a href="https://mglviola247.github.io/MyWeb/NON.html">Team 1</a>
+  <a href="https://mglviola247.github.io/MyWeb/NON.html" style="background:lightgreen ; width:bold; color:blue">Team 1</a>
   <a href="https://mglviola247.github.io/MyWeb/OBC.html">Team 2</a>
   <a href="https://mglviola247.github.io/MyWeb/DEV.html">Team 3</a>
   <a href="https://mglviola247.github.io/MyWeb/Customer.html">Шинэ харилцагч</a>
@@ -45,7 +45,7 @@
   let allNames = [];
 
   // Google Sheet-ээс нэрсийг татах
-  fetch("https://script.google.com/macros/s/AKfycbxpm0TLN-6gEG9zmXa-BMotjEq89V5R5wxxj9ujZjYjADJci4FqqiCo5tbumWrUu99e/exec") // Google Apps Script URL
+  fetch("https://script.google.com/macros/s/AKfycbx-xZ7TuL3Wa0H8-ukHe0rxsCHayuaYHmhbcbBfwv8mU0o4vcAWsOmWCWlDrZYVaDBH/exec") // Google Apps Script URL
     .then(res => res.json())
     .then(data => allNames = data)
     .catch(err => console.error("Нэрс татахад алдаа:", err));
