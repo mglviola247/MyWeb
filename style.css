@@ -32,6 +32,11 @@
         {
             -moz-appearance:textfield;
         }
+         input[type=radio]
+        {
+           transform: scale(2.0);
+           margin: 10px;
+        }
 
         form 
         {
@@ -55,7 +60,7 @@
         label {
             color:white;
             margin-left:20px;
-            font-size:14px;
+            font-size:24px;
             font-weight: bold;
 
         }
@@ -66,12 +71,12 @@
             }
 
             .topnav a {
-              float: left;
+              float: center;
               color: #f2f2f2;
               text-align: center;
               padding: 14px 16px;
               text-decoration: none;
-              font-size: 17px;
+              font-size: 24px;
             }
 
             .topnav a:hover {
