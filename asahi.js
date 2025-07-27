@@ -16,10 +16,9 @@
       const response = await fetch(urlPhone);
       const data = await response.json();
 
-      const user = data.find(v => v.Phonenumber == phoneNumber.value);
-
+      let user = data.find(v => v.Phonenumber == phoneNumber.value);
       if (user) {
-        customerName.innerText = `Харилцагч: ${user.Name}`;
+        customerName.innerText = `Харилцагч: ${user.names}`;
         // Бараа бүтээгдэхүүн нэмэх цонхийг дуудаж байгаа.
         openProductModal();
       } else {
@@ -112,10 +111,13 @@ document.addEventListener("click", (e) => {
   const productName = nameInput.value;
   const productPrice = parseFloat(document.getElementById("productPrice").value);
   const productQuantity = parseInt(document.getElementById("productQuantity").value);
+  const contractCustomer = document.getElementById("customerName").innerHTML;
   const totalProductPrice = productPrice * productQuantity;
 
   const row = document.createElement("tr");
   row.innerHTML = `
+    <td style='display:none'>${contractCustomer}</td>
+    <td style='display:none'>${phoneNumber.value}</td>
     <td>${productName}</td>
     <td>${productPrice}₮</td>
     <td>${productQuantity}</td>
@@ -169,45 +171,29 @@ function convertTableToJson() {
 
   const json = JSON.stringify(tableData, null, 2);
   console.log(json);
+  let urlTest = "https://script.google.com/macros/s/AKfycbzaNwLg3y9ni7Q8EdDvVvlghfh0vhbzt1tBY1Ctbjs-4OwjlzchEZLIsmeXBlbDCEty-w/exec";
 
-  fetch("https://script.google.com/macros/s/AKfycbxL3vLN2_lXwkCnVIs1OeUkSKBSgvB9ud7QhENc_GGLksMi-0Otnkt_5ehi2z84UI2z/exec", {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: json
-  })
-  .then(response => {
-    alert("Амжилттай илгээгдлээ!");
-    location.reload();
-  })
-  .catch(error => {
-    console.error('Алдаа:', error.message);
-    alert("Илгээхэд алдаа гарлаа!");
-  });
-
-}
-
-const urlTest = "https://script.google.com/macros/s/AKfycbwr27ZprdzwtQdVGOv1IGmxG-4aEl3n8aWjm7reCKdUb0XfvqnxSAbYvspiOfjsuMXULg/exec";
-
-function Test() {
-    fetch(urlTest, {
+  fetch(urlTest, {
     method: 'POST',
     mode:'no-cors',
     cache:'no-cache',
-    //credentials: 'same-origin',
     headers: { 'Content-Type': 'application/json' },
     redirect:'follow',
-    //referrerPolicy: 'no-referrer',
-    body: JSON.stringify({name:"Jhon"})
+    body:json
   })
-  .then(response => {
-    alert("Амжилттай илгээгдлээ!");
-    location.reload();
+  .then(response => response.json())
+  .then(data => {
+    alert("Амжилттай илгээгдлээ: " + data.message);
+
   })
   .catch(error => {
     console.error('Алдаа:', error.message);
-    alert("Илгээхэд алдаа гарлаа!");
+    location.reload();
   });
+
+
 }
+
 
 
 
