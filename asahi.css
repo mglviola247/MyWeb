@@ -8,7 +8,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #fff;
 }
 
 .container {
@@ -20,15 +20,15 @@ body {
 .add-product {
     width: 48%;
     padding: 20px;
-    background-color: #fff;
+    background-color: #f4f4f4;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .product-list {
-    width: 45%;
+    width: 50%;
     padding: 20px;
-    background-color: #fff;
+    background-color: #f4f4f4;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -38,6 +38,7 @@ button {
     color: white;
     padding: 10px 20px;
     border: none;
+    border-radius: 15px;
     cursor: pointer;
     font-size: 16px;
     margin-top: 10px;
@@ -117,14 +118,18 @@ form button:hover {
 /* Product Table Section */
 table {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+    table-layout: fixed; /* Ширээний багануудын өргөнийг жигд барина */
+    word-wrap: break-word;
 }
 
 table th, table td {
     padding: 10px;
     text-align: center;
     border: 1px solid #ddd;
+    overflow: hidden;           /* Илүү гарсан хэсгийг нуух */
+    text-overflow: ellipsis;    /* ... гэж товчлоно */
+    white-space: nowrap;        /* Хэрвээ нэг мөрт багтаах бол */
+    font-size: 14px;
 }
 
 table th {
@@ -165,6 +170,52 @@ label {
     width:auto;
 }
 
+/* Top Navigation Bar */
+.topnav {
+    background-color: #d92536; /* Улаан өнгө */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+    font-size: 14px;
+    flex-wrap: wrap;
+}
+
+.topnav-left,
+.topnav-center,
+.topnav-right {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.topnav-center {
+    font-weight: bold;
+    justify-content: center;
+    flex: 1;
+    text-align: center;
+}
+img {
+    width:60px;
+    margin:10px auto;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+    .topnav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .topnav-left,
+    .topnav-center,
+    .topnav-right {
+        justify-content: center;
+        margin: 5px 0;
+        flex-wrap: wrap;
+    }
+}
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
@@ -191,4 +242,12 @@ label {
         font-size: 16px;
         text-align: right;
     }
+        table th, table td {
+        font-size: 13px;
+        white-space: normal; /* Гар утсан дээр бол мөр таслаж багтаадаг болгоно */
+    }
+
 }
+
+
+
