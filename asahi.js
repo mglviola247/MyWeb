@@ -4,6 +4,7 @@
   let customerName = document.querySelector("#customerName");
   let urlPhone = `https://script.google.com/macros/s/AKfycbxgUVytmwrDr-ApJOMnP2qiicyWaa4ro7mtbkLqQCCff7OATzqNxvyz4OnTCP3hvj2l/exec`;
   let urlPrice = `https://script.google.com/macros/s/AKfycbx99kpMeAjKpXnsiACQ9yfib8tJRiw2tt-INFQIB4a7Cu6VyW9b0pGO4WWtu4PARsrC/exec`;
+  let checkbox = document.getElementById("myCheckbox");
 
   let sendbutton = document.querySelector("#SendSheet");
 
@@ -85,11 +86,17 @@ document.addEventListener("click", (e) => {
     try {
       const responsePrice = await fetch(urlPrice);
       const dataPrice = await responsePrice.json();
+      
 
       const price = dataPrice.find(v => v.ProductName == nameInput.value);
       console.log(price);
       if (price) {
-        priceInput.value = `${price.Price}`;
+        if (checkbox.checked) {
+                priceInput.value = `${price.Price}`;
+            } else {
+                priceInput.value = `${price.PriceNuat}`
+            }
+        
         // Бараа бүтээгдэхүүн нэмэх цонхийг дуудаж байгаа.
       } else {
         console.log("Үнийн мэдээлэл харуулахад алдаа илэрлээ")
@@ -113,6 +120,13 @@ document.addEventListener("click", (e) => {
   const productQuantity = parseInt(document.getElementById("productQuantity").value);
   const contractCustomer = document.getElementById("customerName").innerHTML;
   const totalProductPrice = productPrice * productQuantity;
+  let checkNuat = "";
+    if (checkbox.checked) {
+                 checkNuat = "Тийм";
+            } else {
+                 checkNuat = "Үгүй";
+            }
+        
 
   const row = document.createElement("tr");
   row.innerHTML = `
@@ -123,6 +137,7 @@ document.addEventListener("click", (e) => {
     <td>${productQuantity}</td>
     <td>${totalProductPrice}₮</td>
     <td><button class="remove-btn"><i class="fas fa-minus"></i></button></td>
+    <td style='display:none'>${checkNuat}</td>
   `;
   productTableBody.appendChild(row);
 
@@ -155,7 +170,7 @@ function convertTableToJson() {
     return;
   }
 
-  const headers = ['customerName', 'phoneNumber', 'productName', 'productPrice','productQuantity','totalPrice','delete'];
+  const headers = ['customerName', 'phoneNumber', 'productName', 'productPrice','productQuantity','totalPrice','delete',"checkbox"];
 
   for (let i = 1; i < rows.length; i++) {
     const rowData = {};
@@ -171,7 +186,7 @@ function convertTableToJson() {
 
   const json = JSON.stringify(tableData, null, 2);
   console.log(json);
-  let urlTest = "https://script.google.com/macros/s/AKfycbzaNwLg3y9ni7Q8EdDvVvlghfh0vhbzt1tBY1Ctbjs-4OwjlzchEZLIsmeXBlbDCEty-w/exec";
+  let urlTest = "https://script.google.com/macros/s/AKfycbwLosvrXa5NjAon2n6L5lZkN8oQ4BotKmi-5zZtpZO-ys8vzZVIFpH7REr38JUNFEFgdg/exec";
 
   fetch(urlTest, {
     method: 'POST',
