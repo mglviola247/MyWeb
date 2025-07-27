@@ -118,7 +118,7 @@ form button:hover {
 /* Product Table Section */
 table {
     width: 100%;
-    table-layout: fixed; /* Ширээний багануудын өргөнийг жигд барина */
+    /*table-layout: fixed; /* Ширээний багануудын өргөнийг жигд барина */
     word-wrap: break-word;
 }
 
