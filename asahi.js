@@ -108,7 +108,7 @@ document.addEventListener("click", (e) => {
   productForm.onsubmit = function(event) {
   event.preventDefault();
 
-  const productName = nameInput.value;
+  const productName = nameInput.value; 
   const productPrice = parseFloat(document.getElementById("productPrice").value);
   const productQuantity = parseInt(document.getElementById("productQuantity").value);
   const contractCustomer = document.getElementById("customerName").innerHTML;
@@ -122,7 +122,7 @@ document.addEventListener("click", (e) => {
     <td>${productPrice}₮</td>
     <td>${productQuantity}</td>
     <td>${totalProductPrice}₮</td>
-    <td><button class="remove-btn">Хасах</button></td>
+    <td><button class="remove-btn"><i class="fas fa-minus"></i></button></td>
   `;
   productTableBody.appendChild(row);
 
@@ -155,7 +155,7 @@ function convertTableToJson() {
     return;
   }
 
-  const headers = Array.from(rows[0].getElementsByTagName('th')).map(th => th.textContent.trim());
+  const headers = ['customerName', 'phoneNumber', 'productName', 'productPrice','productQuantity','totalPrice','delete'];
 
   for (let i = 1; i < rows.length; i++) {
     const rowData = {};
@@ -166,7 +166,7 @@ function convertTableToJson() {
       rowData[key] = value;
     }
     tableData.push(rowData);
-    console.log(rowData);
+  
   }
 
   const json = JSON.stringify(tableData, null, 2);
@@ -188,7 +188,9 @@ function convertTableToJson() {
   })
   .catch(error => {
     console.error('Алдаа:', error.message);
+    alert("Амжилттай илгээгдлээ");
     location.reload();
+
   });
 
 
