@@ -188,9 +188,7 @@ function convertTableToJson() {
 
 const urlTest = "https://script.google.com/macros/s/AKfycbwr27ZprdzwtQdVGOv1IGmxG-4aEl3n8aWjm7reCKdUb0XfvqnxSAbYvspiOfjsuMXULg/exec";
 
-function Test(){
-
-    const testData = [{name:JOE}]
+function Test() {
     fetch(urlTest, {
     method: 'POST',
     mode:'no-cors',
