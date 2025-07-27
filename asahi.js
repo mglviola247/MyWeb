@@ -188,7 +188,7 @@ function convertTableToJson() {
   })
   .catch(error => {
     console.error('Алдаа:', error.message);
-    alert("Амжилттай илгээгдлээ");
+    alert("Таны захиалга амжилттай бүртгэгдлээ. Та төлбөрөө төлж захиалгаа баталгаажуулаарай");
     location.reload();
 
   });
