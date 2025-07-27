@@ -7,8 +7,27 @@
     <link rel="stylesheet" href="asahi.css">
 </head>
 <body>
+            <!-- Top Navigation -->
+        <div class="topnav">
+          <div class="topnav-left">
+            <span>❤️ Тавтай морил</span>
+            <span>いらっしゃいませ</span>
+          </div>
 
-    <div class="container">
+          <div class="topnav-center">
+            <span class="topnav-slogan">Итгэлийг чанараар</span>
+          </div>
+
+          <div class="topnav-right">
+            <span>📞 (+976) 77776006</span>
+            <span>✉️ info@asahi.mn</span>
+          </div>
+        </div>
+        <div style="text-align: center;">
+            <img src="asahi.png" alt=""/>
+        </div>
+        
+            <div class="container">
         <!-- Бараа нэмэх хэсэг -->
         <div class="add-product">
             <label>Утасны дугаар:</label><br>
@@ -20,7 +39,7 @@
             <!-- Modal for adding a product -->
             <div class="modal" id="addProductModal">
                 <div class="modal-content">
-                    <h2>Бараа Бүтээгдэхүүн Нэмэх</h2>
+                    <h3>Бараа Бүтээгдэхүүн Нэмэх</h3>
 
                     <form id="productForm" name="productForm">
                         <label for="productName">Барааны нэр:</label>
@@ -51,7 +70,7 @@
                         <th>productPrice</th>
                         <th>productQuantity</th>
                         <th>totalPrice</th>
-                        <th>Хасах</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody id="productTableBody">
