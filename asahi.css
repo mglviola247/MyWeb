@@ -18,7 +18,7 @@ body {
 }
 
 .add-product {
-    width: 45%;
+    width: 48%;
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
@@ -66,7 +66,7 @@ button:hover {
     margin: 5% auto;
     padding: 10px;
     border: 1px solid #888;
-    width: 90%;
+    width: 98%;
     max-width: 500px;
 }
 
@@ -99,6 +99,7 @@ form input {
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    width:100%;
 }
 
 form button {
@@ -156,11 +157,38 @@ label {
     margin-bottom: 5px;
     font-weight: bold;
 }
-input {
+#phoneNumber {
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width:50%;
+    width:auto;
 }
 
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .add-product,
+    .product-list {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    button {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    table th, table td {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    #totalAmount {
+        font-size: 16px;
+        text-align: right;
+    }
+}
