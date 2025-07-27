@@ -186,6 +186,31 @@ function convertTableToJson() {
 
 }
 
+const urlTest = "https://script.google.com/macros/s/AKfycbwr27ZprdzwtQdVGOv1IGmxG-4aEl3n8aWjm7reCKdUb0XfvqnxSAbYvspiOfjsuMXULg/exec";
+
+function Test(){
+
+    const testData = [{name:JOE}]
+    fetch(urlTest, {
+    method: 'POST',
+    mode:'no-cors',
+    cache:'no-cache',
+    //credentials: 'same-origin',
+    headers: { 'Content-Type': 'application/json' },
+    redirect:'follow',
+    //referrerPolicy: 'no-referrer',
+    body: JSON.stringify({name:"Jhon"})
+  })
+  .then(response => {
+    alert("Амжилттай илгээгдлээ!");
+    location.reload();
+  })
+  .catch(error => {
+    console.error('Алдаа:', error.message);
+    alert("Илгээхэд алдаа гарлаа!");
+  });
+}
+
 
 
 
