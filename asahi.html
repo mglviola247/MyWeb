@@ -33,7 +33,8 @@
         <div class="add-product">
             <label>Утасны дугаар:</label><br>
             <input type="number" id="phoneNumber"  name="phoneNumber" required><br>
-            <label id="customerName"></label>
+            <label id="customerName"></label><br>
+            <label>НӨАТ:</label><input type="checkbox" id="myCheckbox" onchange = "showInfoPrice()">
 
             <button id="phoneSearch">Хайх</button>
 
@@ -48,7 +49,7 @@
                         <ul id="suggestions" style="list-style: none; padding: 0; margin: 0; background: #fff; border: 1px solid #ccc; display: none; position: absolute; width: 300px;"></ul>
 
                         <label for="productPrice">Үнэ (₮):</label>
-                        <input type="number" id="productPrice" name="productPrice" required>
+                        <input type="text" id="productPrice" name="productPrice" required>
 
                         <label for="productQuantity">Тооны хэмжээ:</label>
                         <input type="number" id="productQuantity" name="productQuantity" required>
