@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бараа Бүтээгдэхүүн Нэмэх</title>
+    <link rel="stylesheet" href="asahi.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Бараа нэмэх хэсэг -->
+        <div class="add-product">
+            <label>Утасны дугаар:</label><br>
+            <input type="number" id="phoneNumber"  name="phoneNumber" required><br>
+            <label id="customerName"></label>
+
+            <button id="phoneSearch">Хайх</button>
+
+            <!-- Modal for adding a product -->
+            <div class="modal" id="addProductModal">
+                <div class="modal-content">
+                    <h2>Бараа Бүтээгдэхүүн Нэмэх</h2>
+
+                    <form id="productForm" name="productForm">
+                        <label for="productName">Барааны нэр:</label>
+                        <input type="text" id="productName" id="productName" name="productName" required>
+                        <ul id="suggestions" style="list-style: none; padding: 0; margin: 0; background: #fff; border: 1px solid #ccc; display: none; position: absolute; width: 300px;"></ul>
+
+                        <label for="productPrice">Үнэ (₮):</label>
+                        <input type="number" id="productPrice" name="productPrice" required>
+
+                        <label for="productQuantity">Тооны хэмжээ:</label>
+                        <input type="number" id="productQuantity" name="productQuantity" required>
+
+                        <button type="submit">Нэмэх</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Нэмэгдсэн бараануудын хүснэгт -->
+        <div class="product-list">
+            <h3>Захиалсан барааны жагсаалт</h3>
+            <table id="productTable">
+                <thead>
+                    <tr>
+                        <th>productName</th>
+                        <th>productPrice</th>
+                        <th>productQuantity</th>
+                        <th>totalPrice</th>
+                        <th>Хасах</th>
+                    </tr>
+                </thead>
+                <tbody id="productTableBody">
+                    <!-- Added products will be displayed here -->
+                </tbody>
+            </table>
+            <div id="totalAmount">
+                <strong>Нийт үнэ: </strong><span id="totalPrice">0₮</span>
+            </div>
+                <button onclick="convertTableToJson()">Илгээх</button><br><br>
+          
+
+        </div>
+
+    </div>
+
+    <script src="asahi.js"></script>
+</body>
+</html>
