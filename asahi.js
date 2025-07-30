@@ -11,14 +11,15 @@
     btnPhoneSearch.addEventListener("click", showInfo);
 
     async function showInfo() {
-        document.getElementById("textPhone").style.display = "none";
+        document.getElementById("textPhone").innerHTML = "Харилцагчийг хайж байгаа тул түр хүлээн үү!!!";
       try {
         const response = await fetch(urlPhone);
         const data = await response.json();
 
         let user = data.find(v => v.Phonenumber == phoneNumber.value);
         if (user) {
-          customerName.innerText = `Харилцагч: ${user.names}`;
+          customerName.innerText =user.names;
+          document.getElementById("textPhone").style.display = "none"
           // Бараа бүтээгдэхүүн нэмэх цонхийг дуудаж байгаа.
           openProductModal();
         } else {
