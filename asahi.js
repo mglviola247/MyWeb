@@ -207,7 +207,7 @@
 
     const json = JSON.stringify(tableData, null, 2);
     console.log(json);
-    let urlTest = "https://script.google.com/macros/s/AKfycbwLosvrXa5NjAon2n6L5lZkN8oQ4BotKmi-5zZtpZO-ys8vzZVIFpH7REr38JUNFEFgdg/exec";
+    let urlTest = "https://script.google.com/macros/s/AKfycbwuWCQSGtr-ZF9HiwNkHh47NkYozdVDlEpvShX3tl__yM95NzVaYZpZLU-gNrk7olKR/exec";
 
     fetch(urlTest, {
       method: 'POST',
