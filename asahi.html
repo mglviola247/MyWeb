@@ -33,7 +33,8 @@
         <div class="add-product">
             <label>Утасны дугаар:</label><br>
             <input type="number" id="phoneNumber"  name="phoneNumber" required><br>
-            <label id="customerName"></label><br>
+            <label id="textPhone" style="color:red">Утасны дугаараа оруулаад хайх товчийг дарна уу!!!!</label><br>
+            <label id="customerName"></label><br><br>
             <label>НӨАТ:</label><input type="checkbox" id="myCheckbox" onchange = "showInfoPrice()">
 
             <button id="phoneSearch">Хайх</button>
@@ -73,6 +74,7 @@
                         <th>Тоо</th>
                         <th>Дүн</th>
                         <th></th>
+                        <th style="display:none">Nuat</th>
                     </tr>
                 </thead>
                 <tbody id="productTableBody">
@@ -86,6 +88,22 @@
 
         </div>
 
+    </div>
+
+    <div id="overlay"></div>
+
+    <div id="alertBox">
+        <h3>Таны захиалга амжилттай илгээгдлээ</h3>   
+        <ul id="alertList">
+          <li>Банкны нэр: Худалдаа хөгжлийн банк - TDB</li>
+          <li id="account">Дансны дугаар: 460015585</li>
+          <li id="accountIBAN">IBAN дугаар: MN370004000460015585</li>
+          <li>Дансны нэр: Мөнхгэрэл Батчимэг</li>
+          <li>Гүйлгээний утга: Аймаг-Харилцагчийн нэр</li>
+        </ul>
+        <p>Энэ дансруу төлбөрөө хийж захиалгаа баталгаажуулаарай.</p>
+        <h2>Өдрийг сайхан өнгөрүүлээрэй.</h2>
+        <button id="alertButton">X</button>
     </div>
 
     <script src="asahi.js"></script>
