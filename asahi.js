@@ -226,7 +226,6 @@
 
     })
     .catch(error => {
-      console.error('Алдаа:', error.message);
       alertBox();
     });
 
@@ -235,6 +234,7 @@
   function alertBox() {
   document.getElementById("alertBox").style.display = "block";
   document.getElementById("overlay").style.display = "block";
+  document.getElementById("balance").innerHTML = `Төлөх дүн:${totalAmount}₮`;
   
   document.querySelector("#alertButton").addEventListener("click", () => {
     location.reload();
